@@ -1,0 +1,32 @@
+﻿@using System.Data
+@model C3_Dominio.Entidades.Cliente
+<script src="~/Bootstrap/js/jquery-1.11.0.js"></script>
+@{
+    DataTable dt = (DataTable)Session["ClienteEntrega"];
+    foreach (DataRow r in dt.Rows)
+    {
+        <table>
+            <tr>
+                <td>Nombre / Razon Social :</td>
+                <td>
+                    <input name="txtNombreCliente" type="text" maxlength="25" id="txtNombreCliente" disabled="disabled"  value="@r["Nombre"]" />
+                </td>
+                <td>
+                    <form action="~/Cliente/NuevoCliente" method="get">
+                        <input type="submit" value="NUEVO CLIENTE" name="btnNuevo" id="btnNuevo" />
+
+                    </form>
+                </td>
+                <td>
+                    <div class="editor-label ">
+                        <input name="txtIdClienteEntrega" type="text" maxlength="3" id="txtIdClienteEntrega" style='visibility:hidden' value="@r["IdCliente"]" />
+                    </div>
+                </td>
+     
+                @*<td><input name="txtDireccion" type="text" id="txtDireccion" style='visibility:hidden' value="@r["Direccion"]" /></td>*@
+            </tr>
+   
+        </table>
+
+    }
+}

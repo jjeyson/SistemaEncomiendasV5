@@ -1,0 +1,35 @@
+﻿@using System.Data
+<script src="~/Bootstrap/js/jquery-1.11.0.js"></script>
+@{
+    DataTable dt = (DataTable)Session["CalcularPrecios"];
+    foreach (DataRow r in dt.Rows)
+    {
+        <table>
+            <tr>
+                <td>SubTotal :</td>
+                <td>
+                    <input name="txtSubTotal" type="text" maxlength="25" id="txtSubTotal" disabled="disabled" value="@r["Total"]" />
+                </td>
+               
+              
+            </tr>
+            <tr>
+                <td>Descuento :</td>
+                <td>
+                    <input name="txtDescuento" type="text" maxlength="25" id="txtDescuento" disabled="disabled" value="@r["Descuento"]"/>
+                </td>
+           
+            </tr>
+            <tr>
+                <td>Monto a Pagar :</td>
+                <td>
+                    <input name="txtMontoPagar" type="text" maxlength="25" id="txtMontoPagar" disabled="disabled" value="@r["MontoTotal"]" />
+                </td>
+           
+            </tr>
+           
+        </table>
+
+    }
+}
+<table><tr><td><input type="submit" value="REGISTRAR ENVIO" name="btnRegistrarEnvio" /> </td></tr></table>

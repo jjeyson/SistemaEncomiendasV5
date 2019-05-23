@@ -1,0 +1,54 @@
+﻿@using System.Data
+@model C3_Dominio.Entidades.Cliente
+<script src="~/Bootstrap/js/jquery-1.11.0.js"></script>
+@{
+    DataTable dt = (DataTable)Session["BuscaClienteEntrega"];
+    foreach (DataRow r in dt.Rows)
+    {
+        <table>
+            <tr>
+                <td>Nombre / Razon Social :</td>
+                <td>
+                    <input name="txtNombreCliente" type="text" maxlength="25" id="txtNombreCliente" disabled="disabled" value="@r["Nombre"]" />
+                </td>
+            </tr>
+            <tr>
+                <td>@r["TipoDocumento"] :</td>
+                <td>
+                    <input name="txtNroDocumento" type="text" maxlength="25" id="txtNroDocumento" disabled="disabled" value="@r["NroDocumento"]" />
+                </td>
+            </tr>
+            <tr>
+                <td>Direccion :</td>
+                <td><input name="txtDireccion" type="text" id="txtDireccion" disabled="disabled" value="@r["Direccion"]" /></td>
+
+            </tr>
+            <tr>
+                <td>Telefono :</td>
+                <td><input name="txtTelefono" type="text" id="txtTelefono" disabled="disabled" value="@r["Telefono"]" /></td>
+
+            </tr>
+            <tr>
+                <td>
+                    @*<form method="post" action="~/RecepcionEncomienda/RegistrarRecepcionEncomienda">
+                        <table>
+                            <tr>
+                                <td>*@
+                                    <input name="txtIdClienteEntrega" type="text" maxlength="3" id="txtIdClienteEntrega" style='visibility:hidden'  value="@r["IdCliente"]" />
+                                @*</td>
+                                <td><input type="submit" value="Registrar Entrega Encomienda" name="btnRegistrar" /></td>
+
+                            </tr>
+                        </table>
+                        <br />
+
+                    </form>*@
+
+                </td>
+            </tr>
+       
+
+        </table>
+
+    }
+}
