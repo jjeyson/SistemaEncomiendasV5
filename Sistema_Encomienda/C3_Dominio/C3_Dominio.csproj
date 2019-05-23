@@ -54,6 +54,7 @@
     <Compile Include="Entidades\Sucursal.cs" />
     <Compile Include="Entidades\Tarifa.cs" />
     <Compile Include="Entidades\TipoDocumento.cs" />
+    <Compile Include="Entidades\TipoUsuario.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

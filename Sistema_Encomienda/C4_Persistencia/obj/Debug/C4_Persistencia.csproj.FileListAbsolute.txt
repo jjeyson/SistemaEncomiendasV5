@@ -113,3 +113,11 @@ C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistenc
 C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\obj\Debug\C4_Persistencia.csproj.CopyComplete
 C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\obj\Debug\C4_Persistencia.dll
 C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\obj\Debug\C4_Persistencia.pdb
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\bin\Debug\C4_Persistencia.dll.config
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\bin\Debug\C4_Persistencia.dll
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\bin\Debug\C4_Persistencia.pdb
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\bin\Debug\C3_Dominio.dll
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\bin\Debug\C3_Dominio.pdb
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\obj\Debug\C4_Persistencia.csprojResolveAssemblyReference.cache
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\obj\Debug\C4_Persistencia.dll
+C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C4_Persistencia\obj\Debug\C4_Persistencia.pdb
