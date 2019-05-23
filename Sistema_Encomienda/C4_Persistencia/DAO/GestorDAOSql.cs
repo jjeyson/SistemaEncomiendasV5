@@ -26,7 +26,7 @@ namespace C4_Persistencia.DAO
             try
             {
                 conexion = new SqlConnection();
-                conexion.ConnectionString = "Data Source=sql7002.site4now.net;Initial Catalog=DB_A4909B_SistemaEncomiendas;Persist Security Info=True;User ID=DB_A4909B_SistemaEncomiendas_admin";
+                conexion.ConnectionString = "Data Source=sql7002.site4now.net;Initial Catalog=DB_A4909B_SistemaEncomiendas;Persist Security Info=True;User ID=DB_A4909B_SistemaEncomiendas_admin;Password=***********";
                 conexion.Open();
             }
             catch (Exception e)
