@@ -118,3 +118,15 @@ C:\Users\Rodriguez\OneDrive - Universidad Privada del Norte\UPN\CICLO VIII\CAYPS
 C:\Users\Rodriguez\OneDrive - Universidad Privada del Norte\UPN\CICLO VIII\CAYPS\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csprojResolveAssemblyReference.cache
 C:\Users\Rodriguez\OneDrive - Universidad Privada del Norte\UPN\CICLO VIII\CAYPS\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.dll
 C:\Users\Rodriguez\OneDrive - Universidad Privada del Norte\UPN\CICLO VIII\CAYPS\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.pdb
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C2_Aplicacion.dll
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C2_Aplicacion.pdb
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C3_Dominio.dll
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C4_Persistencia.dll
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C3_Dominio.pdb
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C4_Persistencia.pdb
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C4_Persistencia.dll.config
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csprojAssemblyReference.cache
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csproj.CopyComplete
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.dll
+C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.pdb
