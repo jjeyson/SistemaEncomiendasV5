@@ -126,6 +126,7 @@
     <Compile Include="Controllers\InicioSesionController.cs" />
     <Compile Include="Controllers\RecepcionEncomiendaController.cs" />
     <Compile Include="Controllers\ReporteEncomiendasController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -726,6 +727,7 @@
     <Content Include="Views\ReporteEncomiendas\ListarEnvios.cshtml" />
     <Content Include="Views\ReporteEncomiendas\ListarReporte.cshtml" />
     <Content Include="Views\ReporteEncomiendas\ObtenerMontoTotal.cshtml" />
+    <Content Include="Views\Usuario\ListaUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C2_Aplicacion\C2_Aplicacion.csproj">
