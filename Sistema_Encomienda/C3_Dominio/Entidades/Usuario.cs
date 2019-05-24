@@ -19,7 +19,7 @@ namespace C3_Dominio.Entidades
         private string _cargo;
         private Sucursal _sucursal;
         private bool _activo;
-       
+        public TipoUsuario tipoUsuario { get; set; }
         public int IdUsuario
         {
             get { return _idUsuario; }
