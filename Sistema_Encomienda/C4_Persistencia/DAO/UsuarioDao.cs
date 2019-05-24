@@ -51,6 +51,10 @@ namespace C4_Persistencia.DAO
                sucursal.Direccion = dr["SucursalDireccion"].ToString();
                sucursal.Telefono = dr["Telefono"].ToString();
                usuario.sucursal = sucursal;
+               TipoUsuario tipoUsuario = new TipoUsuario();
+               tipoUsuario.id = Convert.ToInt32(dr["tipoUsuario"]);
+               tipoUsuario.nombre = Convert.ToString(dr["nombre"]);
+               usuario.tipoUsuario = tipoUsuario;
                    }
                }catch(Exception e){
                    throw e;

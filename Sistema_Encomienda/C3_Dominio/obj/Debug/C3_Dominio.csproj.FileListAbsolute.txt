@@ -64,7 +64,3 @@ C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\ob
 C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\obj\Debug\C3_Dominio.csproj.CoreCompileInputs.cache
 C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\obj\Debug\C3_Dominio.dll
 C:\Users\georg\source\repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\obj\Debug\C3_Dominio.pdb
-C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\bin\Debug\C3_Dominio.dll
-C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\bin\Debug\C3_Dominio.pdb
-C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\obj\Debug\C3_Dominio.dll
-C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C3_Dominio\obj\Debug\C3_Dominio.pdb

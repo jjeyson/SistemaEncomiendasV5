@@ -46,7 +46,7 @@
                             @{
 
                                 C3_Dominio.Entidades.Usuario usuario = (C3_Dominio.Entidades.Usuario)Session["usuario"];
-
+                                C3_Dominio.Entidades.TipoUsuario tu = (C3_Dominio.Entidades.TipoUsuario)Session["tipoUsuario"];
                                 if (usuario != null)
                                 {
                                     <span class="username"><i class="icon_profile"></i> @usuario.NombreUsuario @usuario.ApellidosUsuario @usuario.sucursal.IdSucursal</span>
@@ -55,7 +55,6 @@
                             }
                         </a>
                         <ul class="dropdown-menu extended logout">
-                            <div class="log-arrow-up"></div>
                             <li class="eborder-top">
                                 <a href="#"><i class="icon_profile"></i> Mi perfil</a>
                             </li>
@@ -69,7 +68,7 @@
             </div>
         </header>
         @{
-            if (usuario != null && usuario.Cargo == "Administrador")
+            if (usuario != null && tu.nombre == "Administrador")
             {
                 <aside>
                     <div id="sidebar" class="nav-collapse ">
@@ -99,11 +98,11 @@
                                     <span>Usuarios</span>
                                 </a>
                             </li>
-</ul>
+                        </ul>
                     </div>
                 </aside>
             }
-            else if (usuario != null && usuario.Cargo == "Recepcionista")
+            else if (usuario != null && tu.nombre == "Recepcionista")
             {
                 <aside>
                     <div id="sidebar" class="nav-collapse ">
@@ -149,7 +148,23 @@
                     </div>
                 </aside>
             }
+            else if (usuario != null && tu.nombre == "Encargado del Area de Despacho")
+            {
+                <aside>
+                    <div id="sidebar" class="nav-collapse ">
+                        <ul class="sidebar-menu">
+                            <li>
+                                <a href="@Url.Action("RegistroCliente","Cliente")" class="">
+                                    <i class="icon_desktop"></i>
+                                    <span>Gestionar Cliente</span>
+                                </a>
+                            </li>
+                          </ul>
+                       </div>
+                   </aside>
+            }
         }
+
         <section id="main-content">
             <section class="wrapper">
                 <div class="row">

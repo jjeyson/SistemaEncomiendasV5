@@ -45,6 +45,7 @@
     <Compile Include="Contratos\IGestorDAO.cs" />
     <Compile Include="Contratos\IRutaDAO.cs" />
     <Compile Include="Contratos\ITipoDocumentoDAO.cs" />
+    <Compile Include="Contratos\ITipoUsuarioDAO.cs" />
     <Compile Include="Contratos\IUsuarioDAO.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\DetalleDocumentoEnvioEncomienda.cs" />

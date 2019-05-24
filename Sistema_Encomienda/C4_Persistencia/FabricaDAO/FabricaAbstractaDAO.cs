@@ -20,5 +20,6 @@ namespace C4_Persistencia.FabricaDAO
        public abstract ITipoDocumentoDAO crearTipoDocumentoDAO(IGestorDAO gestorDAO);
        public abstract IDocumentoEnvioEncomienda crearDocumentoEnvioEncomiendaDAO(IGestorDAO gestorDAO);
        public abstract IRutaDAO crearRutaDAO(IGestorDAO gestorDAO);
+       public abstract ITipoUsuarioDAO crearTipoUsuario(IGestorDAO gestorDAO);
    }
 }

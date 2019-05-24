@@ -40,5 +40,10 @@ namespace C4_Persistencia.DAO
         {
             return new RutaDao(gestorDAO);
         }
+        override
+        public  ITipoUsuarioDAO crearTipoUsuario(IGestorDAO gestorDAO)
+        {
+            return new TipoUsuarioDao(gestorDAO);
+        }
     }
 }
