@@ -63,6 +63,51 @@ namespace C4_Persistencia.DAO
                return usuario;
            
        }
+        public List<Usuario> listarUsuarios()
+        {
+            SqlCommand comando = null;
+            SqlDataReader dr = null;
+            SqlConnection conexion = null;
+            Usuario usuario = null;
+
+            try
+            {
+                List<Usuario> lista = new List<Usuario>();
+                conexion = gestorDAOSQL.abrirConexion();
+                comando = new SqlCommand("sp_listarUsuarios",conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                dr = comando.ExecuteReader();
+                while (dr.Read())
+                {
+                    usuario = new Usuario();
+                    usuario.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                    usuario.Usuarios = dr["Usuario"].ToString();
+                    usuario.Clave = dr["Clave"].ToString();
+                    usuario.NombreUsuario = dr["NombreUsuario"].ToString();
+                    usuario.ApellidosUsuario = dr["ApellidosUsuario"].ToString();
+                    usuario.DNI = dr["DNI"].ToString();
+                    usuario.Direccion = dr["Direccion"].ToString();
+                    usuario.Telefono = dr["Telefono"].ToString();
+                    usuario.Cargo = dr["Cargo"].ToString();
+                    Sucursal sucursal = new Sucursal();
+                    sucursal.IdSucursal = Convert.ToInt32(dr["idSucursal"]);
+                    sucursal.Ciudad = Convert.ToString(dr["ciudad"]);
+                    usuario.sucursal = sucursal;
+                    TipoUsuario tipoUsuario = new TipoUsuario();
+                    tipoUsuario.id = Convert.ToInt32(dr["tipoUsuario"]);
+                    tipoUsuario.nombre = Convert.ToString(dr["nombre"]);
+                    usuario.tipoUsuario = tipoUsuario;
+                    lista.Add(usuario);
+                    
+                }
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         #endregion Metodos
     }
 }

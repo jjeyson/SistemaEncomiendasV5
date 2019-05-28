@@ -35,6 +35,19 @@ namespace C2_Aplicacion.Mantenimientos
                 throw e; 
             }
         }
+        public List<Usuario> listarUsuario()
+        {
+            try
+            {
+                List<Usuario> lista = usuarioDAO.listarUsuarios();
+                gestorDAO.cerrarConexion();
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         #endregion
     }
 }

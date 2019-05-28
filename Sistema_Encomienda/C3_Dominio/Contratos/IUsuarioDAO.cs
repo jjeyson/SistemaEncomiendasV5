@@ -9,5 +9,6 @@ namespace C3_Dominio.Contratos
   public  interface IUsuarioDAO
     {
       Usuario inicioSesion(String usuarios, String clave);
+      List<Usuario> listarUsuarios();
     }
 }

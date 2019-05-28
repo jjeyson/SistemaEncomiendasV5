@@ -1,4 +1,5 @@
-﻿using C3_Dominio.Entidades;
+﻿using C2_Aplicacion.Mantenimientos;
+using C3_Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace C1_Presentacion.Controllers
     {
         //
         // GET: /Usuario/
+        GestionarUsuario objUsuario = new GestionarUsuario();
         public ActionResult ListaUsuario()
         {
-            return View();
+            List<Usuario> lista = objUsuario.listarUsuario();
+            return View(lista);
         }
         
         public ViewResult NuevoUsuario()

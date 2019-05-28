@@ -36,7 +36,7 @@
                 <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
             </div>
 
-            <a href="index.html" class="logo">BIENV<span class="lite">ENIDO</span></a>
+            <a href="@Url.Action("Home","IniciarSesion")" class="logo">BIENV<span class="lite">ENIDO</span></a>
 
             <div class="top-nav notification-row">
                 <ul class="nav pull-right top-menu">
@@ -74,7 +74,7 @@
                     <div id="sidebar" class="nav-collapse ">
                         <ul class="sidebar-menu">
                             <li class="active">
-                                <a class="" href="@Url.Action("Home", "Inicio")">
+                                <a class="" href="@Url.Action("Home", "InicioSesion")">
                                     <i class="icon_house_alt"></i>
                                     <span>Inicio</span>
                                 </a>
@@ -82,20 +82,48 @@
 
                             <li>
                                 <a href="@Url.Action("RegistroCliente","Cliente")" class="">
-                                    <i class="icon_desktop"></i>
-                                    <span>Gestionar Cliente</span>
+                                    <i class="icon_profile"></i>
+                                    <span>Gestionar Clientes</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="@Url.Action("ListarReporte", "ReporteEncomiendas")" class="">
-                                    <i class="icon_desktop"></i>
-                                    <span>Reporte</span>
+                                    <i class="icon_calendar"></i>
+                                    <span>Reportes</span>
                                 </a>
                             </li>
+                            
                             <li>
                                 <a href="@Url.Action("ListaUsuario", "Usuario")" class="">
+                                    <i class="icon_profile"></i>
+                                    <span>Gestionar Usuarios</span>
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:;" class="">
                                     <i class="icon_document_alt"></i>
-                                    <span>Usuarios</span>
+                                    <span>Gestionar Procesos</span>
+                                    <span class="menu-arrow arrow_carrot-right"></span>
+                                </a>
+                                <ul class="sub">
+                                    <li>
+                                        <form id="frm" method="post" action="~/EnvioEncomienda/GestionarEnvioEncomienda">
+                                            <input type="submit" value="Gestionar Envio" class="btn btn-primary btn-lg btn-block" />
+                                            <input name="txtIdSucursal" type="text" id="txtIdSucursal" style='visibility:hidden' value="@usuario.sucursal.IdSucursal" />
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form id="frm" method="post" action="~/RecepcionEncomienda/GestionarRecepcionEncomienda">
+                                            <input type="submit" value="Gestionar Recepcion" class="btn btn-primary btn-lg btn-block" />
+                                            <input name="txtIdSucursal" type="text" id="txtIdSucursal" style='visibility:hidden' value="@usuario.sucursal.IdSucursal" />
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="">
+                                    <i class="icon_drive"></i>
+                                    <span>Gestionar Encomienda</span>
                                 </a>
                             </li>
                         </ul>
@@ -108,7 +136,7 @@
                     <div id="sidebar" class="nav-collapse ">
                         <ul class="sidebar-menu">
                             <li class="active">
-                                <a class="" href="@Url.Action("Home", "Inicio")">
+                                <a class="" href="@Url.Action("Home", "InicioSesion")">
                                     <i class="icon_house_alt"></i>
                                     <span>Inicio</span>
                                 </a>
@@ -124,19 +152,19 @@
                             <li class="sub-menu">
                                 <a href="javascript:;" class="">
                                     <i class="icon_document_alt"></i>
-                                    <span>Procesos</span>
+                                    <span>Gestionar Procesos</span>
                                     <span class="menu-arrow arrow_carrot-right"></span>
                                 </a>
                                 <ul class="sub">
                                     <li>
                                         <form id="frm" method="post" action="~/EnvioEncomienda/GestionarEnvioEncomienda">
-                                            <input type="submit" value="Registrar Envío" class="btn btn-primary btn-lg btn-block" />
+                                            <input type="submit" value="Gestionar Envío" class="btn btn-primary btn-lg btn-block" />
                                             <input name="txtIdSucursal" type="text" id="txtIdSucursal" style='visibility:hidden' value="@usuario.sucursal.IdSucursal" />
                                         </form>
                                     </li>
                                     <li>
                                         <form id="frm" method="post" action="~/RecepcionEncomienda/GestionarRecepcionEncomienda">
-                                            <input type="submit" value="Registrar Entrega" class="btn btn-primary btn-lg btn-block" />
+                                            <input type="submit" value="Gestionar Recepcion" class="btn btn-primary btn-lg btn-block" />
                                             <input name="txtIdSucursal" type="text" id="txtIdSucursal" style='visibility:hidden' value="@usuario.sucursal.IdSucursal" />
                                         </form>
                                     </li>
@@ -151,14 +179,22 @@
             else if (usuario != null && tu.nombre == "Encargado del Area de Despacho")
             {
                 <aside>
+
                     <div id="sidebar" class="nav-collapse ">
                         <ul class="sidebar-menu">
-                            <li>
-                                <a href="@Url.Action("RegistroCliente","Cliente")" class="">
-                                    <i class="icon_desktop"></i>
-                                    <span>Gestionar Cliente</span>
+                            <li class="active">
+                                <a class="" href="@Url.Action("Home", "InicioSesion")">
+                                    <i class="icon_house_alt"></i>
+                                    <span>Inicio</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="@Url.Action("GestionarEnvioEncomienda ", "EnvioEncomienda")" class="">
+                                    <i class="icon_desktop"></i>
+                                    <span>Gestionar Envio</span>
+                                </a>
+                            </li>
+
                           </ul>
                        </div>
                    </aside>
