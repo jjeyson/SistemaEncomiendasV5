@@ -139,3 +139,15 @@ C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplica
 C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csprojResolveAssemblyReference.cache
 C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.dll
 C:\Users\Rodriguez\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.pdb
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C2_Aplicacion.dll
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C2_Aplicacion.pdb
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C3_Dominio.dll
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C4_Persistencia.dll
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C3_Dominio.pdb
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C4_Persistencia.pdb
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\bin\Debug\C4_Persistencia.dll.config
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csprojAssemblyReference.cache
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.csproj.CopyComplete
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.dll
+C:\Users\Nicky\Source\Repos\Sistema_Encomiendas\Sistema_Encomienda\C2_Aplicacion\obj\Debug\C2_Aplicacion.pdb

@@ -5,11 +5,13 @@
 }
 
 <h2>Lista de Usuarios</h2>
-                <tr>
-                    <td>Buscar </td>
-                    <td><input name="txtDniRuc" type="text" maxlength="11" id="txtDniRuc" onpaste="return false" onkeypress="return solonumeros(event)" /></td>
-                    <td><input type="submit" value="BUSCAR USUARIO" name="btnBuscar" /></td>
-                </tr>
+<tr>
+    <td>Buscar </td>
+    <td><input name="txtDniRuc" type="text" maxlength="11" id="txtDniRuc" onpaste="return false" onkeypress="return solonumeros(event)" /></td>
+    <td><input type="submit" value="BUSCAR USUARIO" name="btnBuscar" /></td>
+    <td>@Html.ActionLink("Crear", "UsuarioSave", new { idUsuario = 0 })</td>
+</tr>
+
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -38,8 +40,8 @@
                             <td>@Html.DisplayFor(modelItem => u.Usuarios)</td>
                             <td>@Html.DisplayFor(modelItem => u.Clave)</td>
                             <td>@Html.DisplayFor(modelItem => u.Activo)</td>
-                            <td>@Html.ActionLink("Modificar", "ModificarUsuario", new { idUsuario = u.IdUsuario })</td>
-                            <td>@Html.ActionLink("Eliminar", "EliminarUsuario", new { idUsuario = u.IdUsuario })</td>
+                            <td>@Html.ActionLink("Modificar", "UsuarioSave", new { idUsuario = u.IdUsuario })</td>
+                            <td>@Html.ActionLink("Eliminar", "UsuarioDelete", new { idUsuario = u.IdUsuario })</td>
                         </tr>
                     }
                             

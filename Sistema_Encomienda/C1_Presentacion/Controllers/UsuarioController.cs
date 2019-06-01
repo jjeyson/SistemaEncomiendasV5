@@ -18,18 +18,95 @@ namespace C1_Presentacion.Controllers
             List<Usuario> lista = objUsuario.listarUsuario();
             return View(lista);
         }
-        
-        public ViewResult NuevoUsuario()
+        [HttpGet]
+        public ActionResult UsuarioSave(Int32 idUsuario, FormCollection frm)
         {
-            return View();
+            try
+            {
+                List<TipoUsuario> lisUsuario = new List<TipoUsuario>();
+                lisUsuario = objUsuario.listarTipoUsuario();
+                ViewBag.ListTipoUsuario = lisUsuario;
+                List<Sucursal> listSucursal = new List<Sucursal>();
+                listSucursal = objUsuario.Sucursal_GetAll();
+                ViewBag.ListSucursal = listSucursal;
+                if (idUsuario > 0)
+                {
+                    Usuario usuario = objUsuario.Usuario_GetByID(idUsuario);
+
+                    return View(usuario);
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
-        public ActionResult modificarCliente()
+        [HttpPost]
+        public ActionResult UsuarioSave(FormCollection frm, Int32 idUSuario)
         {
-            return View();
+            try
+            {
+                Usuario usuario = new Usuario
+                {
+                    IdUsuario = idUSuario,
+                    NombreUsuario = frm["txtNombreUsuario"],
+                    ApellidosUsuario = frm["txtApellidos"],
+                    DNI = frm["txtDni"],
+                    Usuarios = frm["txtUsuario"],
+                    Clave = frm["txtClave"],
+                    Direccion = frm["txtDireccion"],
+                    Telefono = frm["txtTelefono"],
+                    Activo = true,
+                    sucursal = new Sucursal
+                    {
+                        IdSucursal = Convert.ToInt32(frm["sucursal.IdSucursal"])
+                    },
+                    tipoUsuario = new TipoUsuario
+                    {
+                        id = Convert.ToInt32(frm["tipoUsuario.id"])
+                    }
+                };
+                Int32 modificar = objUsuario.Usuario_Save(usuario);
+
+                if (modificar > 0)
+                {
+                    ViewBag.mensaje = "El cliente ha sido actualizado.";
+                }
+                else
+                {
+                    ViewBag.mensaje = "Ocurrio un error.";
+                }
+                return RedirectToAction("UsuarioSave", "Usuario", new { idUSuario });
+            }
+            catch (ApplicationException z)
+            {
+                ViewBag.mensaje = z.Message;
+                return RedirectToAction("UsuarioSave", "Usuario", new
+                {
+                    idUSuario
+                });
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", "Error", new { error = e.Message });
+            }
         }
-        public ActionResult eliminarCliente()
+        public ActionResult UsuarioDelete(Int32 idUsuario)
         {
-            return View();
+            Boolean elimino = objUsuario.Usuario_Delete(idUsuario);
+
+            if (elimino)
+            {
+                return RedirectToAction("ListaUsuario", "Usuario");
+            }
+            else
+            {
+                return RedirectToAction("ListaUsuario", "Usuario", new { mensaje = "No se pudo eliminar usuario" });
+            }
         }
-	}
+    }
 }

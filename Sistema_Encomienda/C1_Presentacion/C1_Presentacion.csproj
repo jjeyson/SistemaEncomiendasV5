@@ -20,6 +20,9 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -728,6 +731,9 @@
     <Content Include="Views\ReporteEncomiendas\ListarReporte.cshtml" />
     <Content Include="Views\ReporteEncomiendas\ObtenerMontoTotal.cshtml" />
     <Content Include="Views\Usuario\ListaUsuario.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Usuario\UsuarioSave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C2_Aplicacion\C2_Aplicacion.csproj">
@@ -768,7 +774,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1976</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1736/</IISUrl>
+          <IISUrl>http://localhost:26487/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

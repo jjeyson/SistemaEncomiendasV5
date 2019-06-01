@@ -45,5 +45,10 @@ namespace C4_Persistencia.DAO
         {
             return new TipoUsuarioDao(gestorDAO);
         }
+
+        public override ISucursal crearSucursal(IGestorDAO gestorDAO)
+        {
+            return new SucursalDao(gestorDAO);
+        }
     }
 }

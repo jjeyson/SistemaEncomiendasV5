@@ -44,6 +44,7 @@
     <Compile Include="DAO\FabricaDAOSQL.cs" />
     <Compile Include="DAO\GestorDAOSql.cs" />
     <Compile Include="DAO\RutaDao.cs" />
+    <Compile Include="DAO\SucursalDao.cs" />
     <Compile Include="DAO\TipoDocumentoDao.cs" />
     <Compile Include="DAO\TipoUsuarioDao.cs" />
     <Compile Include="DAO\UsuarioDao.cs" />

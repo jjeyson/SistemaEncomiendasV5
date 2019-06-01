@@ -22,21 +22,23 @@ namespace C4_Persistencia.DAO
         {
             SqlCommand cmd = null;
             SqlConnection cn = null;
-            List<TipoUsuario> lista = null;
+ 
             try
             {
+                List<TipoUsuario> lista = new List<TipoUsuario>(); 
                 cn = new SqlConnection();
                 cn = gestorDAOSQL.abrirConexion();
-                cmd = new SqlCommand("select * from TipoUsuario", cn);
-                cmd.CommandType = CommandType.Text;
-                lista = new List<TipoUsuario>();
+                cmd = new SqlCommand("TioUSuario_GetAll_SP", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    TipoUsuario tipoUsuario = new TipoUsuario();
-                    tipoUsuario.id = Convert.ToInt32(dr["1"]);
-                    tipoUsuario.nombre = Convert.ToString(dr["2"]);
-                    tipoUsuario.estado = Convert.ToBoolean(dr["3"]);
+                    TipoUsuario tipoUsuario = new TipoUsuario
+                    {
+                        id = Convert.ToInt32(dr["idUsuario"]),
+                        nombre = Convert.ToString(dr["nombre"]),
+                        estado = Convert.ToBoolean(dr["estado"])
+                    };
                     lista.Add(tipoUsuario);
                 }
                 return lista;
