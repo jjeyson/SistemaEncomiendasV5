@@ -15,7 +15,9 @@ namespace C1_Presentacion.Controllers
         GestionarUsuario objUsuario = new GestionarUsuario();
         public ActionResult ListaUsuario()
         {
-            List<Usuario> lista = objUsuario.listarUsuario();
+            Usuario usuario = (Usuario)Session["usuario"];
+            Int32 idSucursal = usuario.sucursal.IdSucursal;
+            List<Usuario> lista = objUsuario.listarUsuario(idSucursal);
             return View(lista);
         }
         [HttpGet]

@@ -5,50 +5,33 @@
     DataTable dt = (DataTable)Session["BuscaClienteEntrega"];
     foreach (DataRow r in dt.Rows)
     {
-        <table>
-            <tr>
-                <td>Nombre / Razon Social :</td>
-                <td>
-                    <input name="txtNombreCliente" type="text" maxlength="25" id="txtNombreCliente" disabled="disabled" value="@r["Nombre"]" />
-                </td>
-            </tr>
-            <tr>
-                <td>@r["TipoDocumento"] :</td>
-                <td>
-                    <input name="txtNroDocumento" type="text" maxlength="25" id="txtNroDocumento" disabled="disabled" value="@r["NroDocumento"]" />
-                </td>
-            </tr>
-            <tr>
-                <td>Direccion :</td>
-                <td><input name="txtDireccion" type="text" id="txtDireccion" disabled="disabled" value="@r["Direccion"]" /></td>
+        <div class="form-group row">
+            <label class="col-md-2">Nombre / Razon Social :</label>
+            <div class="col-md-8">
+                <input name="txtNombreCliente" class="form-control" type="text" maxlength="25" id="txtNombreCliente" disabled="disabled" value="@r["Nombre"]" />
+            </div>
+        </div>
+        <div class="form-group row">
+             <label class="col-md-2">@r["TipoDocumento"] :</label>
+             <div class="col-md-8">
+                <input name="txtNroDocumento" class="form-control" type="text" maxlength="25" id="txtNroDocumento" disabled="disabled" value="@r["NroDocumento"]" />
+            </div>
+        </div>
+        <div class="form-group row">
+             <label class="col-md-2">Direccion :</label>
+             <div class="col-md-8"><input class="form-control" name="txtDireccion" type="text" id="txtDireccion" disabled="disabled" value="@r["Direccion"]" /></div>
 
-            </tr>
-            <tr>
-                <td>Telefono :</td>
-                <td><input name="txtTelefono" type="text" id="txtTelefono" disabled="disabled" value="@r["Telefono"]" /></td>
+        </div>
+        <div class="form-group row">
+             <label class="col-md-2">Telefono :</label>
+             <div class="col-md-8"><input class="form-control" name="txtTelefono" type="text" id="txtTelefono" disabled="disabled" value="@r["Telefono"]" /></div>
 
-            </tr>
-            <tr>
-                <td>
-                    @*<form method="post" action="~/RecepcionEncomienda/RegistrarRecepcionEncomienda">
-                        <table>
-                            <tr>
-                                <td>*@
-                                    <input name="txtIdClienteEntrega" type="text" maxlength="3" id="txtIdClienteEntrega" style='visibility:hidden'  value="@r["IdCliente"]" />
-                                @*</td>
-                                <td><input type="submit" value="Registrar Entrega Encomienda" name="btnRegistrar" /></td>
-
-                            </tr>
-                        </table>
-                        <br />
-
-                    </form>*@
-
-                </td>
-            </tr>
-       
-
-        </table>
+        </div>
+        <div class="form-group row">
+             <label class="col-md-2">
+                <input name="txtIdClienteEntrega" class="form-control" type="text" maxlength="3" id="txtIdClienteEntrega" style='visibility:hidden' value="@r["IdCliente"]" />
+            </label>
+        </div>
 
     }
 }

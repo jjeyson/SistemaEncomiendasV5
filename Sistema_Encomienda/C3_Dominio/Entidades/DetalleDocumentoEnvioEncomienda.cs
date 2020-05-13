@@ -13,8 +13,8 @@ namespace C3_Dominio.Entidades
       private string _descripcion;
       private int _peso;
       private double _precioGramo;
-      public static double _subTotal;
-      public static double _descuento;
+      public double _subTotal;
+      public double _descuento;
       public int IdDetalleDocumentoEnvioEncomienda
       {
           get { return _idDetalleDocumentoEnvioEncomienda; }
@@ -57,7 +57,7 @@ namespace C3_Dominio.Entidades
       }
 
       public double CalcularTotal()
-      {
+        {
 
          
           return _subTotal=_subTotal + CalcularPrecio();
@@ -65,15 +65,15 @@ namespace C3_Dominio.Entidades
       public double CalcularDescuento()
       {
         
-          if (CalcularTotal() > 100 && CalcularTotal() <= 200)
+          if (SubTotal > 100 && SubTotal <= 200)
           {
-              _descuento = CalcularTotal() * 0.1;
+              _descuento = SubTotal * 0.1;
           }
-          else if (CalcularTotal() > 200)
+          else if (SubTotal > 200)
           {
-              _descuento = CalcularTotal() * 0.2;
+              _descuento = SubTotal * 0.2;
           }
-          else if (CalcularTotal() <= 100)
+          else if (SubTotal <= 100)
           {
               _descuento = 0;
           }
@@ -84,7 +84,7 @@ namespace C3_Dominio.Entidades
       public double calcularMontoTotalPagar()
       {
 
-          return CalcularTotal() - CalcularDescuento();
+          return SubTotal - CalcularDescuento();
       }
 
 

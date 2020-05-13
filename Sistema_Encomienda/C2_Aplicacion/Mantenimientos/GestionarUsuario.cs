@@ -42,11 +42,11 @@ namespace C2_Aplicacion.Mantenimientos
                 throw e;
             }
         }
-        public List<Usuario> listarUsuario()
+        public List<Usuario> listarUsuario(Int32 idSucursal)
         {
             try
             {
-                List<Usuario> lista = usuarioDAO.listarUsuarios();
+                List<Usuario> lista = usuarioDAO.listarUsuarios(idSucursal);
                 gestorDAO.cerrarConexion();
                 return lista;
             }

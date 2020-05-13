@@ -71,16 +71,17 @@ namespace C1_Presentacion.Controllers
         {
             try
             {
-                Cliente cliente = new Cliente();
-
-                cliente.NombreCliente = frm["txtNombre"];
-                cliente.ApellidoPaternoCliente = frm["txtApellidoPaterno"];
-                cliente.ApellidoMaternoCliente = frm["txtApellidoMaterno"];
-                // cliente.NumeroDocumento = frm["txtNroDocumento"];
-                cliente.Direccion = frm["txtDireccion"];
-                cliente.Telefono = frm["txttelefono"];
-                cliente.RazonSocial = frm["txtRazonSocial"];
-                cliente.TipoDocumento = combo;
+                Cliente cliente = new Cliente
+                {
+                    NombreCliente = frm["txtNombre"],
+                    ApellidoPaternoCliente = frm["txtApellidoPaterno"],
+                    ApellidoMaternoCliente = frm["txtApellidoMaterno"],
+                    // cliente.NumeroDocumento = frm["txtNroDocumento"];
+                    Direccion = frm["txtDireccion"],
+                    Telefono = frm["txttelefono"],
+                    RazonSocial = frm["txtRazonSocial"],
+                    TipoDocumento = combo
+                };
 
                 //Validacion Datos Vacios de Campos
                 int contador = 0;

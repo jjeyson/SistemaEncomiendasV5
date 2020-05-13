@@ -25,10 +25,10 @@ namespace C1_Presentacion.Controllers
         }
 
         //    [HttpPost]
-        //  public ActionResult ListarEnvios(String Desde, String Hasta)
-        public ActionResult ListarEnvios(String Desde, String Hasta)
+          public ActionResult ListarEnvios(String Desde, String Hasta)
         {
-
+            Usuario usuario = (Usuario)Session["usuario"];
+            Int32 idSucursal = usuario.sucursal.IdSucursal;
             if (Hasta != "" && Desde != "")
             {
                 if (Convert.ToDateTime(Hasta) < Convert.ToDateTime(Desde))
@@ -39,7 +39,7 @@ namespace C1_Presentacion.Controllers
 
                 else
                 {
-                    List<DocumentoPago> lista = objEnvioEncomienda.ListarReporte(Desde, Hasta);
+                    List<DocumentoPago> lista = objEnvioEncomienda.ListarReporte(Desde, Hasta, idSucursal);
 
                     if (lista.Count() > 0)
                     {
@@ -56,7 +56,7 @@ namespace C1_Presentacion.Controllers
             }
             else
             {
-                List<DocumentoPago> lista = objEnvioEncomienda.ListarReporte(Desde, Hasta);
+                List<DocumentoPago> lista = objEnvioEncomienda.ListarReporte(Desde, Hasta, idSucursal);
 
                 if (lista.Count() > 0)
                 {
@@ -82,9 +82,11 @@ namespace C1_Presentacion.Controllers
 
         public ActionResult ObtenerMontoTotal(String Desde, String Hasta)
         {
+            Usuario usuario = (Usuario)Session["usuario"];
+            Int32 idSucursal = usuario.sucursal.IdSucursal;
             if (Session["MontoTotales"] == null) { MontoTotalSesion(); }
             DataTable dt = (DataTable)Session["MontoTotales"];
-            DocumentoPago documento = objEnvioEncomienda.MontoTotalReporte(Desde, Hasta);
+            DocumentoPago documento = objEnvioEncomienda.MontoTotalReporte(Desde, Hasta, idSucursal);
             Boolean YaExiste = false; DataRow r = dt.NewRow();
             foreach (DataRow filas in dt.Rows)
             {
@@ -111,7 +113,7 @@ namespace C1_Presentacion.Controllers
             {
                 Session.Remove("MontoTotales");
                 if (Session["MontoTotales"] == null) { MontoTotalSesion(); }
-                DocumentoPago documento2 = objEnvioEncomienda.MontoTotalReporte(Desde, Hasta);
+                DocumentoPago documento2 = objEnvioEncomienda.MontoTotalReporte(Desde, Hasta,idSucursal);
                 if (documento != null)
                 {
                     r["Monto"] = documento2.Monto;

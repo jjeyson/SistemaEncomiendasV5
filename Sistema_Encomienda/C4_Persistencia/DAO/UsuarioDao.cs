@@ -26,8 +26,10 @@ namespace C4_Persistencia.DAO
             {
                 cn = new SqlConnection();
                 cn = gestorDAOSQL.abrirConexion();
-                cmd = new SqlCommand("sp_IniciarSesion", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd = new SqlCommand("sp_IniciarSesion", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
 
                 cmd.Parameters.AddWithValue("@usuario", usuarios);
                 cmd.Parameters.AddWithValue("@clave", clave);
@@ -35,25 +37,31 @@ namespace C4_Persistencia.DAO
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    usuario = new Usuario();
-                    usuario.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
-                    usuario.Usuarios = dr["Usuario"].ToString();
-                    usuario.Clave = dr["Clave"].ToString();
-                    usuario.NombreUsuario = dr["NombreUsuario"].ToString();
-                    usuario.ApellidosUsuario = dr["ApellidosUsuario"].ToString();
-                    usuario.DNI = dr["DNI"].ToString();
-                    usuario.Direccion = dr["Direccion"].ToString();
-                    usuario.Telefono = dr["Telefono"].ToString();
-                    usuario.Cargo = dr["Cargo"].ToString();
-                    Sucursal sucursal = new Sucursal();
-                    sucursal.IdSucursal = Convert.ToInt32(dr["idSucursal"]);
-                    sucursal.Ciudad = dr["Ciudad"].ToString();
-                    sucursal.Direccion = dr["SucursalDireccion"].ToString();
-                    sucursal.Telefono = dr["Telefono"].ToString();
+                    usuario = new Usuario
+                    {
+                        IdUsuario = Convert.ToInt32(dr["idUsuario"]),
+                        Usuarios = dr["Usuario"].ToString(),
+                        Clave = dr["Clave"].ToString(),
+                        NombreUsuario = dr["NombreUsuario"].ToString(),
+                        ApellidosUsuario = dr["ApellidosUsuario"].ToString(),
+                        DNI = dr["DNI"].ToString(),
+                        Direccion = dr["Direccion"].ToString(),
+                        Telefono = dr["Telefono"].ToString(),
+                        Cargo = dr["Cargo"].ToString()
+                    };
+                    Sucursal sucursal = new Sucursal
+                    {
+                        IdSucursal = Convert.ToInt32(dr["idSucursal"]),
+                        Ciudad = dr["Ciudad"].ToString(),
+                        Direccion = dr["SucursalDireccion"].ToString(),
+                        Telefono = dr["Telefono"].ToString()
+                    };
                     usuario.sucursal = sucursal;
-                    TipoUsuario tipoUsuario = new TipoUsuario();
-                    tipoUsuario.id = Convert.ToInt32(dr["tipoUsuario"]);
-                    tipoUsuario.nombre = Convert.ToString(dr["nombre"]);
+                    TipoUsuario tipoUsuario = new TipoUsuario
+                    {
+                        id = Convert.ToInt32(dr["tipoUsuario"]),
+                        nombre = Convert.ToString(dr["nombre"])
+                    };
                     usuario.tipoUsuario = tipoUsuario;
                 }
             }
@@ -65,7 +73,7 @@ namespace C4_Persistencia.DAO
             return usuario;
 
         }
-        public List<Usuario> listarUsuarios()
+        public List<Usuario> listarUsuarios(Int32 idSucursal)
         {
             SqlCommand comando = null;
             SqlDataReader dr = null;
@@ -76,28 +84,37 @@ namespace C4_Persistencia.DAO
             {
                 List<Usuario> lista = new List<Usuario>();
                 conexion = gestorDAOSQL.abrirConexion();
-                comando = new SqlCommand("sp_listarUsuarios", conexion);
-                comando.CommandType = CommandType.StoredProcedure;
+                comando = new SqlCommand("sp_listarUsuarios", conexion)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                comando.Parameters.AddWithValue("@idsucursal", idSucursal);
                 dr = comando.ExecuteReader();
                 while (dr.Read())
                 {
-                    usuario = new Usuario();
-                    usuario.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
-                    usuario.Usuarios = dr["Usuario"].ToString();
-                    usuario.Clave = dr["Clave"].ToString();
-                    usuario.NombreUsuario = dr["NombreUsuario"].ToString();
-                    usuario.ApellidosUsuario = dr["ApellidosUsuario"].ToString();
-                    usuario.DNI = dr["DNI"].ToString();
-                    usuario.Direccion = dr["Direccion"].ToString();
-                    usuario.Telefono = dr["Telefono"].ToString();
-                    usuario.Cargo = dr["Cargo"].ToString();
-                    Sucursal sucursal = new Sucursal();
-                    sucursal.IdSucursal = Convert.ToInt32(dr["idSucursal"]);
-                    sucursal.Ciudad = Convert.ToString(dr["ciudad"]);
+                    usuario = new Usuario
+                    {
+                        IdUsuario = Convert.ToInt32(dr["idUsuario"]),
+                        Usuarios = dr["Usuario"].ToString(),
+                        Clave = dr["Clave"].ToString(),
+                        NombreUsuario = dr["NombreUsuario"].ToString(),
+                        ApellidosUsuario = dr["ApellidosUsuario"].ToString(),
+                        DNI = dr["DNI"].ToString(),
+                        Direccion = dr["Direccion"].ToString(),
+                        Telefono = dr["Telefono"].ToString(),
+                        Cargo = dr["Cargo"].ToString()
+                    };
+                    Sucursal sucursal = new Sucursal
+                    {
+                        IdSucursal = Convert.ToInt32(dr["idSucursal"]),
+                        Ciudad = Convert.ToString(dr["ciudad"])
+                    };
                     usuario.sucursal = sucursal;
-                    TipoUsuario tipoUsuario = new TipoUsuario();
-                    tipoUsuario.id = Convert.ToInt32(dr["tipoUsuario"]);
-                    tipoUsuario.nombre = Convert.ToString(dr["nombre"]);
+                    TipoUsuario tipoUsuario = new TipoUsuario
+                    {
+                        id = Convert.ToInt32(dr["tipoUsuario"]),
+                        nombre = Convert.ToString(dr["nombre"])
+                    };
                     usuario.tipoUsuario = tipoUsuario;
                     lista.Add(usuario);
 
@@ -120,8 +137,10 @@ namespace C4_Persistencia.DAO
             {
                 cn = new SqlConnection();
                 cn = gestorDAOSQL.abrirConexion();
-                cmd = new SqlCommand("Usuario_Save_Sp", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd = new SqlCommand("Usuario_Save_Sp", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
                 cmd.Parameters.AddWithValue("@idSucursal", usuario.sucursal.IdSucursal);
                 cmd.Parameters.AddWithValue("@Usuario", usuario.Usuarios);
@@ -148,8 +167,10 @@ namespace C4_Persistencia.DAO
             {
                 cn = new SqlConnection();
                 cn = gestorDAOSQL.abrirConexion();
-                cmd = new SqlCommand("Usario_GetById_SP", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd = new SqlCommand("Usario_GetById_SP", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.AddWithValue("@idUSuario", idUsuario);
                 //       cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -194,8 +215,10 @@ namespace C4_Persistencia.DAO
             {
                 cn = new SqlConnection();
                 cn = gestorDAOSQL.abrirConexion();
-                cmd = new SqlCommand("Usuario_Delete_Sp", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd = new SqlCommand("Usuario_Delete_Sp", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
                 //  cn.Open();
                 if (cmd.ExecuteNonQuery() > 0)

@@ -5,10 +5,15 @@
 }
 <script src="~/Bootstrap/js/jquery-1.11.0.js"></script>
 <h2>Gestionar Recepcion Encomienda</h2>
-<form method="post" >  @*action="~/RecepcionEncomienda/RegistrarRecepcionEncomienda"*@
-    ClienteEntrega:&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-    <input type="text" name="txtDniRuc2" id="txtDniRuc2" placeholder="Ingresa RUC o DNI" maxlength="11" onkeypress="return solonumeros(event)" onpaste="return false" />
-    <input type="button" value="BUSCAR" id="BuscaClienteEntrega" />
+<form method="post">
+    @*action="~/RecepcionEncomienda/RegistrarRecepcionEncomienda"*@
+    <div class="form-group row">
+        <label class="col-md-2">Cliente Entrega:</label>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="txtDniRuc2" id="txtDniRuc2" placeholder="Ingresa RUC o DNI" maxlength="11" onkeypress="return solonumeros(event)" onpaste="return false" />
+
+        </div>  <input type="button" class="col-md-2 btn" value="BUSCAR" id="BuscaClienteEntrega" />
+    </div>
     <div id="bEnvio">
         <br />
 
@@ -17,16 +22,10 @@
         <br />
 
     </div>
-   
-  
+
+
     <br />
 
-    @*<table>
-        <tr>
-            <td><input type="submit" value="REGISTRAR ENTREGA" name="btnRegistrar" /></td>
-        </tr>
-    </table>
-    <br />*@
 </form>
 <h3 align="center" style="color:red">@ViewBag.mensaje</h3>
 <script type="text/javascript">

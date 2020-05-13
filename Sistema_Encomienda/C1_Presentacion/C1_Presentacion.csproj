@@ -580,6 +580,30 @@
     <Content Include="Bootstrap\js\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Bootstrap\js\jquery-jvectormap-world-mill-en.js" />
     <Content Include="Bootstrap\js\jquery-ui-1.10.4.min.js" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\external\jquery\jquery.js" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-icons_222222_256x240.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\index.html" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.css" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.js" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.min.css" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.min.js" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.structure.css" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.structure.min.css" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.theme.css" />
+    <Content Include="Bootstrap\js\jquery-ui-1.11.2\jquery-ui.theme.min.css" />
     <Content Include="Bootstrap\js\jquery-ui-1.9.2.custom.min.js" />
     <Content Include="Bootstrap\js\jquery.autosize.min.js" />
     <Content Include="Bootstrap\js\jquery.customSelect.min.js" />
@@ -692,6 +716,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -734,6 +760,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Usuario\UsuarioSave.cshtml" />
+    <Content Include="Views\EnvioEncomienda\ListarEnvios.cshtml" />
+    <Content Include="Views\EnvioEncomienda\EnviarEncomienda.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C2_Aplicacion\C2_Aplicacion.csproj">

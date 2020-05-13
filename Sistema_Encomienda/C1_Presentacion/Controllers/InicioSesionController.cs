@@ -33,18 +33,22 @@ namespace C1_Presentacion.Controllers
                     return View();
                 }
                 Usuario usuario = gestionaUsuario.inicioSesion(usuarios, clave);
-                TipoUsuario tu = new TipoUsuario();
-                tu.id = usuario.tipoUsuario.id;
-                tu.nombre = usuario.tipoUsuario.nombre;
-                usuario.tipoUsuario = tu;
+                
                 if (usuario != null)
                 {
+                    TipoUsuario tu = new TipoUsuario
+                    {
+                        id = usuario.tipoUsuario.id,
+                        nombre = usuario.tipoUsuario.nombre
+                    };
+                    usuario.tipoUsuario = tu;
                     Session["usuario"] = usuario;
                     Session["tipoUsuario"] = tu;
                     return RedirectToAction("Home", "InicioSesion");
                 }
                 else
                 {
+
                     ViewBag.mensaje = "Usuario o Password no valido!!!!";
                     return View();
                 }

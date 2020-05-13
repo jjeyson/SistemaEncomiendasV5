@@ -9,7 +9,7 @@ namespace C3_Dominio.Contratos
     public interface IUsuarioDAO
     {
         Usuario inicioSesion(String usuarios, String clave);
-        List<Usuario> listarUsuarios();
+        List<Usuario> listarUsuarios(Int32 idSucursal);
         Int32 Usuario_Save(Usuario usuario);
         Usuario Usuario_GetByID(Int32 idUsuario);
         Boolean Usuario_Delete(Int32 idUsuario);

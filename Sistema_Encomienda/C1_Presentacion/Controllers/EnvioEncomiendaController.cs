@@ -8,6 +8,8 @@ using C3_Dominio.Entidades;
 using C3_Dominio.Contratos;
 using C2_Aplicacion.Procesos;
 using C2_Aplicacion.Mantenimientos;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace C1_Presentacion.Controllers
 {
@@ -17,11 +19,11 @@ namespace C1_Presentacion.Controllers
         EnvioEncomiendaServicio objEnvioEncomienda = new EnvioEncomiendaServicio();
         GestionarRuta objGestionaRuta = new GestionarRuta();
         DetalleDocumentoEnvioEncomienda objDetalleEnvio = new DetalleDocumentoEnvioEncomienda();
-        private double calcularPrecio;
-        private static double subtotal;
-        private static double descuento;
-        private static double montoTotal;
-        private static int idSucursal;
+        //private double calcularPrecio;
+        //private static double subtotal;
+        //private static double descuento;
+        //private static double montoTotal;
+        //private static int idSucursal;
 
         //SESSION -- VISTAS PARCIALES
         #region Sesion/VistaParciales
@@ -37,7 +39,7 @@ namespace C1_Presentacion.Controllers
         {
             if (Session["TipoDocumento"] == null) { CrearTipoDocumentoenSesion(); }
             DataTable dt = (DataTable)Session["TipoDocumento"];
-            DocumentoPago documento = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, idSucursal);
+            DocumentoPago documento = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, /*idSucursal*/1);
             Boolean YaExiste = false;
             DataRow r = dt.NewRow();
             foreach (DataRow filas in dt.Rows)
@@ -52,7 +54,7 @@ namespace C1_Presentacion.Controllers
             {
                 Session.Remove("TipoDocumento");
                 if (Session["TipoDocumento"] == null) { CrearTipoDocumentoenSesion(); }
-                DocumentoPago documento2 = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, idSucursal);
+                DocumentoPago documento2 = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, /*idSucursal*/1);
                 DataRow r2 = dt.NewRow();
                 r2["NombreTipo"] = TipoDocumento;
                 r2["NumSerie"] = "000";
@@ -64,7 +66,7 @@ namespace C1_Presentacion.Controllers
             {
                 Session.Remove("TipoDocumento");
                 if (Session["TipoDocumento"] == null) { CrearTipoDocumentoenSesion(); }
-                DocumentoPago documento2 = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, idSucursal);
+                DocumentoPago documento2 = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, /*idSucursal*/1);
                 DataRow r2 = dt.NewRow();
                 r2["NombreTipo"] = TipoDocumento + " DE ENVÍO";
                 r2["NumSerie"] = documento2.NumSerie;
@@ -77,7 +79,7 @@ namespace C1_Presentacion.Controllers
             {
                 Session.Remove("TipoDocumento");
                 if (Session["TipoDocumento"] == null) { CrearTipoDocumentoenSesion(); }
-                DocumentoPago documento2 = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, idSucursal);
+                DocumentoPago documento2 = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, /*idSucursal*/1);
                 DataRow r2 = dt.NewRow();
                 r2["NombreTipo"] = TipoDocumento;
                 r2["NumSerie"] = "000";
@@ -128,16 +130,16 @@ namespace C1_Presentacion.Controllers
             }
             if (!YaExiste)
             {
-                DataRow r = dt.NewRow();
-                objDetalleEnvio.Peso = Peso;
-                objDetalleEnvio.PrecioGramo = tarifa.PrecioGramo;
-                calcularPrecio = objDetalleEnvio.CalcularPrecio();
-                r["Descripcion"] = Descripcion;
-                r["Peso"] = Peso;
-                r["CostoGramo"] = tarifa.PrecioGramo;
-                r["Precio"] = calcularPrecio;
-                subtotal = objDetalleEnvio.CalcularTotal();
-                dt.Rows.Add(r);
+                //DataRow r = dt.NewRow();
+                //objDetalleEnvio.Peso = Peso;
+                //objDetalleEnvio.PrecioGramo = tarifa.PrecioGramo;
+                //calcularPrecio = objDetalleEnvio.CalcularPrecio();
+                //r["Descripcion"] = Descripcion;
+                //r["Peso"] = Peso;
+                //r["CostoGramo"] = tarifa.PrecioGramo;
+                //r["Precio"] = calcularPrecio;
+                //subtotal = objDetalleEnvio.CalcularTotal();
+                //  dt.Rows.Add(r);
                 return PartialView();
             }
             else
@@ -240,7 +242,8 @@ namespace C1_Presentacion.Controllers
                     YaExiste = true;
                     break;
                 }
-            } if (!YaExiste)
+            }
+            if (!YaExiste)
             {
                 if (cliente != null)
                 {
@@ -312,23 +315,23 @@ namespace C1_Presentacion.Controllers
             }
             if (!YaExiste)
             {
-                r["Total"] = subtotal;
-                descuento = objDetalleEnvio.CalcularDescuento();
-                r["Descuento"] = descuento;
-                montoTotal = objDetalleEnvio.calcularMontoTotalPagar();
-                r["MontoTotal"] = montoTotal;
+                //r["Total"] = subtotal;
+                //descuento = objDetalleEnvio.CalcularDescuento();
+                //r["Descuento"] = descuento;
+                //montoTotal = objDetalleEnvio.calcularMontoTotalPagar();
+                //r["MontoTotal"] = montoTotal;
                 dt.Rows.Add(r);
                 return PartialView();
             }
             else
             {
-                Session.Remove("CalcularPrecios");
-                if (Session["CalcularPrecios"] == null) { CrearMontosenSesion(); }
-                r["Total"] = subtotal;
-                descuento = objDetalleEnvio.CalcularDescuento();
-                r["Descuento"] = descuento;
-                montoTotal = objDetalleEnvio.calcularMontoTotalPagar();
-                r["MontoTotal"] = montoTotal;
+                //Session.Remove("CalcularPrecios");
+                //if (Session["CalcularPrecios"] == null) { CrearMontosenSesion(); }
+                //r["Total"] = subtotal;
+                //descuento = objDetalleEnvio.CalcularDescuento();
+                //r["Descuento"] = descuento;
+                //montoTotal = objDetalleEnvio.calcularMontoTotalPagar();
+                //r["MontoTotal"] = montoTotal;
                 dt.Rows.Add(r);
                 return PartialView();
             }
@@ -345,7 +348,7 @@ namespace C1_Presentacion.Controllers
             Session.Remove("ClienteEntrega");
             Session.Remove("ClienteEnvio");
             Session.Remove("CalcularPrecios");
-            idSucursal = Convert.ToInt32(frm["txtIdSucursal"]);
+            Int32 idSucursal = Convert.ToInt32(frm["txtIdSucursal"]);
             List<Ruta> lstRuta = objGestionaRuta.listarRutaId(idSucursal);
             var lsRuta = new SelectList(lstRuta, "idRuta", "Descripcion");
             ViewBag.ListaRutas = lsRuta;
@@ -355,14 +358,13 @@ namespace C1_Presentacion.Controllers
         [HttpGet]
         public ActionResult GestionarEnvioEncomienda()
         {
-            subtotal = 0;
-            // documentoPago.MontoTotal = 0;
             Session.Remove("TipoDocumento");
             Session.Remove("DetEnvio");
             Session.Remove("ClienteEntrega");
             Session.Remove("ClienteEnvio");
             Session.Remove("CalcularPrecios");
-            //  idSucursal = Convert.ToInt32(frm["txtIdSucursal"]);
+            Usuario usuario = (Usuario)Session["usuario"];
+            Int32 idSucursal = usuario.sucursal.IdSucursal;
             List<Ruta> lstRuta = objGestionaRuta.listarRutaId(idSucursal);
             var lsRuta = new SelectList(lstRuta, "idRuta", "Descripcion");
             ViewBag.ListaRutas = lsRuta;
@@ -393,11 +395,13 @@ namespace C1_Presentacion.Controllers
             {
                 int contador = 0;
                 // REGISTRAR DOCUMENTO PAGO
-                DocumentoPago documentoPago = new DocumentoPago();
-                documentoPago.NumSerie = frm["txtNSerie"];
-                documentoPago.NumDocumento = frm["txtNdocumento"];
-                documentoPago.TipoDocumento = combo;
-                documentoPago.Monto = montoTotal;
+                DocumentoPago documentoPago = new DocumentoPago
+                {
+                    NumSerie = frm["txtNSerie"],
+                    NumDocumento = frm["txtNdocumento"],
+                    TipoDocumento = combo
+                };
+                //documentoPago.Monto = montoTotal;
 
                 //VALIDACIONES CAMPOS
                 if (documentoPago.Monto.Equals("") || documentoPago.Monto == 0.0)
@@ -430,16 +434,22 @@ namespace C1_Presentacion.Controllers
 
                 //Capturamos datos de la cabecera PARA REGISTRAR ENVIO
                 DocumentoEnvioEncomienda documentoEnvio = new DocumentoEnvioEncomienda();
-                Ruta ruta = new Ruta();
-                ruta.IdRuta = Convert.ToInt16(frm["Ruta"]);
+                Ruta ruta = new Ruta
+                {
+                    IdRuta = Convert.ToInt16(frm["Ruta"])
+                };
                 documentoEnvio.Ruta = ruta;
                 documentoEnvio.FechaEnvio = Convert.ToDateTime(frm["txtFechaEnvio"]);
                 documentoEnvio.ADomicilio = frm["txtDireccion"];
-                Cliente clienteEnvio = new Cliente();
-                clienteEnvio.IdCliente = Convert.ToInt16(frm["txtIdClienteEnvio"]);
+                Cliente clienteEnvio = new Cliente
+                {
+                    IdCliente = Convert.ToInt16(frm["txtIdClienteEnvio"])
+                };
                 documentoEnvio.ClienteEnvio = clienteEnvio;
-                Cliente clienteEntrega = new Cliente();
-                clienteEntrega.IdCliente = Convert.ToInt16(frm["txtIdClienteEntrega"]);
+                Cliente clienteEntrega = new Cliente
+                {
+                    IdCliente = Convert.ToInt16(frm["txtIdClienteEntrega"])
+                };
                 documentoEnvio.ClienteEntrega = clienteEntrega;
                 //VALIDACION DATOS
 
@@ -462,7 +472,8 @@ namespace C1_Presentacion.Controllers
                 {
                     contador++;
                     return RedirectToAction("GestionarEnvioEncomienda", "EnvioEncomienda", new { error = "Se debe de ingresar Remitente" });
-                } if (documentoEnvio.ClienteEntrega.Equals("") || clienteEntrega.IdCliente == 0)
+                }
+                if (documentoEnvio.ClienteEntrega.Equals("") || clienteEntrega.IdCliente == 0)
                 {
                     contador++;
                     return RedirectToAction("GestionarEnvioEncomienda", "EnvioEncomienda", new { error = "Se debe de ingresar Destinatario" });
@@ -482,9 +493,11 @@ namespace C1_Presentacion.Controllers
                 DataTable dt = (DataTable)Session["DetEnvio"];
                 foreach (DataRow r in dt.Rows)
                 {
-                    DetalleDocumentoEnvioEncomienda detalle = new DetalleDocumentoEnvioEncomienda();
-                    detalle.Descripcion = r["Descripcion"].ToString();
-                    detalle.Peso = Convert.ToInt16(r["Peso"]);
+                    DetalleDocumentoEnvioEncomienda detalle = new DetalleDocumentoEnvioEncomienda
+                    {
+                        Descripcion = r["Descripcion"].ToString(),
+                        Peso = Convert.ToInt16(r["Peso"])
+                    };
                     if (dt.Rows.Count > 0 && contador == 0)
                     {
                         Boolean inserto2 = objEnvioEncomienda.InsertarDetalleEnvioEncomienda(detalle);
@@ -516,5 +529,145 @@ namespace C1_Presentacion.Controllers
                                     new { error = "Ingrese los Datos que se le pide." });
             }
         }
-	}
+        public ActionResult ListarEnvios()
+        {
+            Usuario usuario = (Usuario)Session["usuario"];
+            Int32 idSucursal = usuario.sucursal.IdSucursal;
+            List<DocumentoPago> lista = objEnvioEncomienda.Encomienda_GetByStatus("PENDIENTE", idSucursal);
+
+            if (lista.Count() > 0)
+            {
+                return PartialView(lista);
+            }
+            else
+            {
+                ViewBag.mensaje = "No se encontraron envios pendientes.";
+                return View();
+            }
+        }
+        public ActionResult EnviarEncomienda(Int32 idEnvio, FormCollection frm)
+        {
+            try
+            {
+                if (idEnvio > 0)
+                {
+                    DocumentoPago envio = objEnvioEncomienda.Encomienda_GetById(idEnvio);
+
+                    return View(envio);
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        [HttpPost]
+        public ActionResult EnviarEncomienda(FormCollection frm, Int32 idEnvio)
+        {
+            try
+            {
+
+                DocumentoEnvioEncomienda envio = new DocumentoEnvioEncomienda
+                {
+                    IdDocumentoEnvioEncomienda = idEnvio,
+                    ADomicilio = frm["txtDireccion"],
+                    FechaEnvio = Convert.ToDateTime(frm["txtFechaEnvio"]),
+                    Conductor = frm["txtConductor"]
+                };
+                Boolean modificar = objEnvioEncomienda.EnvioEncomienda_Update(envio);
+
+                if (modificar)
+                {
+                    ViewBag.Message = "El envío ha sido actualizado.";
+                    return RedirectToAction("ListarEnvios", "EnvioEncomienda");
+                }
+                else
+                {
+                    ViewBag.Message = "Ocurrio un error.";
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+            }
+            return RedirectToAction("EnviarEncomienda", "EnvioEncomienda", new { idEnvio });
+        }
+        [HttpPost]
+        public JsonResult Package_Add(Int32 Peso, Int32 idRuta, Double subTotal)
+        {
+            try
+            {
+                Tarifa tarifa = objGestionaRuta.listarTarifaIdRuta(idRuta);
+                objDetalleEnvio.Peso = Peso;
+                objDetalleEnvio.PrecioGramo = tarifa.PrecioGramo;
+                Double calcularPrecio = objDetalleEnvio.CalcularPrecio();
+                objDetalleEnvio.SubTotal = subTotal + calcularPrecio;
+                Double descuento = objDetalleEnvio.CalcularDescuento();
+                Double montoTotal = objDetalleEnvio.calcularMontoTotalPagar();
+                JavaScriptSerializer sr = new JavaScriptSerializer();
+                Object obj = new { result = "Ok", calcularPrecio, Data = sr.Serialize(objDetalleEnvio), montoTotal };
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Object obj = new { result = "NoOk", ex.Message };
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpPost]
+        public JsonResult TipoDocumento_GetData(String TipoDocumento)
+        {
+            try
+            {
+                Usuario usuario = (Usuario)Session["usuario"];
+                Int32 idSucursal = usuario.sucursal.IdSucursal;
+                DocumentoPago documento = objEnvioEncomienda.ObtenerNumeros(TipoDocumento, idSucursal);
+                documento.TipoDocumento = TipoDocumento + " DE ENVÍO";
+                JavaScriptSerializer sr = new JavaScriptSerializer();
+                Object obj = new { result = "Ok", Data = sr.Serialize(documento) };
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Object obj = new { result = "NoOk", ex.Message };
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpPost]
+        public JsonResult EnvioEncomienda_Save(DocumentoPago documentoPago)
+        {
+            try
+            {
+                // DocumentoPago documentoPago = JsonConvert.DeserializeObject<DocumentoPago>(sendData);
+                Boolean inserto = objEnvioEncomienda.InsertarEnvioEncomienda2(documentoPago.DocumentoEnvio);
+                Boolean inserto3 = objEnvioEncomienda.InsertarDocumentoPago(documentoPago);
+
+
+                //Detalle
+                List<DetalleDocumentoEnvioEncomienda> detalleEnvio = new List<DetalleDocumentoEnvioEncomienda>();
+                DataTable dt = (DataTable)Session["DetEnvio"];
+                foreach (DetalleDocumentoEnvioEncomienda r in documentoPago.DocumentoEnvio.detalleEnvio)
+                {
+
+                    Boolean inserto2 = objEnvioEncomienda.InsertarDetalleEnvioEncomienda(r);
+
+                }
+                Object obj = new { result = "Ok", Message = "Se registro correctamente el envio de Encomiendas." };
+                return Json(obj, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                Object obj = new { result = "NoOk", ex.Message };
+                return Json(obj, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+    }
 }
